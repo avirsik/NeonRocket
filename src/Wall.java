@@ -10,4 +10,5 @@ public class Wall {
         this.length = length;
         this.isHit = isHit;
     }
+
 }

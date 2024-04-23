@@ -1,9 +1,9 @@
 public class Rocket {
-    private int x;
-    private int y;
+    private int xCoor;
+    private int yCoor;
     // Constructors
     public Rocket(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.xCoor = x;
+        this.yCoor = y;
     }
 }
