@@ -3,12 +3,14 @@ import java.awt.*;
 public class GameViewer extends JFrame {
     private Game g;
     private Image background;
-    private int WINDOW_WIDTH = 1000;
-    private int WINDOW_HEIGHT = 900;
+    private Image instructions;
+    private int WINDOW_WIDTH = 1285;
+    private int WINDOW_HEIGHT = 600;
 
     public GameViewer(Game game) {
         this.g = game;
         this.background = new ImageIcon("Resources/background.png").getImage();
+        this.instructions = new ImageIcon("Resources/instructions.png").getImage();
 
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -18,13 +20,21 @@ public class GameViewer extends JFrame {
     }
 
     public void paint(Graphics g) {
-        if (getState().equals("menu")) {
+        if (this.g.getState().equals("menu")) {
             menuScreen(g);
+        }
+        else if (this.g.getState().equals("instructions")) {
+            instructionsScreen(g);
         }
     }
 
+    // Menu screen
     public void menuScreen(Graphics g) {
         g.drawImage(background, 0, 0, this);
     }
 
+    // Instruction screen
+    public void instructionsScreen(Graphics g) {
+        g.drawImage(instructions, 0, 0, this);
+    }
 }
