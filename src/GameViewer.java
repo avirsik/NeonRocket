@@ -31,6 +31,10 @@ public class GameViewer extends JFrame {
     // Menu screen
     public void menuScreen(Graphics g) {
         g.drawImage(background, 0, 0, this);
+        g.setColor(Color.white);
+//        g.drawString("                                                                NEON ROCKET\n\n\n                                                                Game Instructions\n                                                                (press i)\n\n                                                                Play\n                                                                (press p)\n\n" +
+//                "                                                                Level\n" +
+//                "                                                                (press l)");
     }
 
     // Instruction screen

@@ -1,5 +1,9 @@
 import java.util.Scanner;
-public class Game {
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+public class Game implements KeyListener {
     private GameViewer gv;
     private String state;
     private Scanner s = new Scanner(System.in);
@@ -8,32 +12,36 @@ public class Game {
         // Initalizing instance variables
         this.gv = new GameViewer(this);
         this.state = "menu";
+        gv.addKeyListener(this);
 
         gv.repaint();
-        menu();
+//        keyTyped();
+//        menu();
     }
 
-    public void menu() {
-        System.out.println("\n                                                                NEON ROCKET\n\n\n" +
-                "                                                                Game Instructions\n" +
-                "                                                                (press i)\n\n" +
-                "                                                                Play\n" +
-                "                                                                (press p)\n\n" +
-                "                                                                Level\n" +
-                "                                                                (press l)");
-        // Print instructions
-        String input = s.nextLine();
-        if (input.equals("i")) {
-            printInstructions();
-            state = "instructions";
-        }
-        else if (input.equals("p")) {
-            state = "play";
-        }
-        else if (input.equals("l")) {
-            state = "level";
-        }
-    }
+//    public void menu() {
+//        System.out.println("\n                                                                NEON ROCKET\n\n\n" +
+//                "                                                                Game Instructions\n" +
+//                "                                                                (press i)\n\n" +
+//                "                                                                Play\n" +
+//                "                                                                (press p)\n\n" +
+//                "                                                                Level\n" +
+//                "                                                                (press l)");
+//        // Print instructions
+//        if (input.equals("i")) {
+//            printInstructions();
+//            state = "instructions";
+//            gv.repaint();
+//        }
+//        // Plays game
+//        else if (input.equals("p")) {
+//            state = "play";
+//        }
+//        // Changes level
+//        else if (input.equals("l")) {
+//            state = "level";
+//        }
+//    }
 
     public String getState() {
         return this.state;
@@ -46,5 +54,34 @@ public class Game {
     }
     public static void main(String[] args) {
         Game g = new Game();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch(e.getKeyCode()) {
+            case KeyEvent.VK_I:
+                state = "instructions";
+                break;
+            case KeyEvent.VK_P:
+                state = "play";
+                break;
+            case KeyEvent.VK_L:
+                state = "level";
+                break;
+            case KeyEvent.VK_LEFT:
+                break;
+        }
+        gv.repaint();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
