@@ -1,17 +1,26 @@
 import java.util.Scanner;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.*;
+import javax.swing.*;
 
-public class Game implements KeyListener {
+
+public class Game implements KeyListener, ActionListener {
     private GameViewer gv;
+    private Rocket r;
     private String state;
     private Scanner s = new Scanner(System.in);
 
     public Game() {
         // Initalizing instance variables
         this.gv = new GameViewer(this);
-        this.state = "menu";
+        Rocket r = new Rocket(200, 600);
+
+        Timer clock = new Timer(30, this);
+        clock.start();
+
+//        this.state = "menu";
+        this.state = "play";
         gv.addKeyListener(this);
 
         gv.repaint();
@@ -76,6 +85,12 @@ public class Game implements KeyListener {
                 break;
             case KeyEvent.VK_LEFT:
                 break;
+            case KeyEvent.VK_RIGHT:
+                break;
+            case KeyEvent.VK_UP:
+                break;
+            case KeyEvent.VK_DOWN:
+                break;
         }
         gv.repaint();
     }
@@ -83,5 +98,13 @@ public class Game implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    // This method is called every time increment
+    // It checks to see if it is hitting the walls or stars or launchpad and repaints the window
+    public void actionPerformed(ActionEvent e) {
+//        r.isHittingWall();
+        r.move();
+        gv.repaint();
     }
 }

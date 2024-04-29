@@ -4,6 +4,7 @@ public class GameViewer extends JFrame {
     private Game g;
     private Image background;
     private Image instructions;
+    private Image playScreen;
     private int WINDOW_WIDTH = 1285;
     private int WINDOW_HEIGHT = 600;
 
@@ -11,6 +12,7 @@ public class GameViewer extends JFrame {
         this.g = game;
         this.background = new ImageIcon("Resources/background.png").getImage();
         this.instructions = new ImageIcon("Resources/instructions.png").getImage();
+        this.playScreen = new ImageIcon("Resources/playScreen.png").getImage();
 
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,6 +28,9 @@ public class GameViewer extends JFrame {
         else if (this.g.getState().equals("instructions")) {
             instructionsScreen(g);
         }
+        else if (this.g.getState().equals("play")) {
+            playScreen(g);
+        }
     }
 
     // Menu screen
@@ -40,5 +45,11 @@ public class GameViewer extends JFrame {
     // Instruction screen
     public void instructionsScreen(Graphics g) {
         g.drawImage(instructions, 0, 0, this);
+    }
+
+    public void playScreen(Graphics g) {
+        g.drawImage(playScreen, 0, 0, this);
+        Rocket r = new Rocket(200, 600);
+        r.draw(g);
     }
 }
