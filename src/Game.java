@@ -13,14 +13,17 @@ public class Game implements KeyListener, ActionListener {
 
     public Game() {
         // Initalizing instance variables
+        this.state = "play";
         this.gv = new GameViewer(this);
-        Rocket r = new Rocket(200, 600);
+        r = new Rocket(175, 600);
 
         Timer clock = new Timer(30, this);
         clock.start();
 
-//        this.state = "menu";
-        this.state = "play";
+        this.state = "menu";
+//        this.state = "play";
+
+
         gv.addKeyListener(this);
 
         gv.repaint();
@@ -56,6 +59,10 @@ public class Game implements KeyListener, ActionListener {
         return this.state;
     }
 
+    public Rocket getRocket() {
+        return this.r;
+    }
+
     public void printInstructions() {
         System.out.println("\n\nThe rocket will start on a launchpad. Use the left and right arrow keys to boost the " +
                 "rocket up and to the left or right. Try to hit as many stars as possible while avoiding obstacl" +
@@ -84,12 +91,16 @@ public class Game implements KeyListener, ActionListener {
                 state = "level";
                 break;
             case KeyEvent.VK_LEFT:
+                r.setDX(-20);
                 break;
             case KeyEvent.VK_RIGHT:
+                r.setDX(20);
                 break;
             case KeyEvent.VK_UP:
+                r.setDY(-20);
                 break;
             case KeyEvent.VK_DOWN:
+                r.setDY(20);
                 break;
         }
         gv.repaint();
@@ -97,14 +108,22 @@ public class Game implements KeyListener, ActionListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        r.setDX(0);
+        r.setDY(0);
     }
 
     // This method is called every time increment
     // It checks to see if it is hitting the walls or stars or launchpad and repaints the window
     public void actionPerformed(ActionEvent e) {
-//        r.isHittingWall();
+        // If the rocket is hitting a wall, reset game
+        if (r.isHittingWall()) {
+            r.setDX(175);
+            r.setDY(600);
+        }
+        // Update rocket's dx and dy values
         r.move();
+        // Repaint window and rocket's location on the window
         gv.repaint();
     }
+
 }

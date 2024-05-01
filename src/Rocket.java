@@ -22,14 +22,22 @@ public class Rocket {
     }
 
     // Makes the rocket disappear if it hits a wall
-//    public void isHittingWall() {
-//        if (xCoor > 1285 || xCoor < 0 || yCoor > 600 || yCoor < 0) {
-//
-//        }
-//    }
+    public boolean isHittingWall() {
+        if (xCoor > gv.WINDOW_WIDTH || xCoor < 0 || yCoor > gv.WINDOW_HEIGHT || yCoor < 0) {
+            return true;
+        }
+        return false;
+    }
 
     public void move() {
         xCoor+=dx;
         yCoor+=dy;
+    }
+
+    public void setDX(double dx) {
+        this.dx = dx;
+    }
+    public void setDY(double dy){
+        this.dy = dy;
     }
 }

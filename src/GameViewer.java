@@ -5,14 +5,16 @@ public class GameViewer extends JFrame {
     private Image background;
     private Image instructions;
     private Image playScreen;
-    private int WINDOW_WIDTH = 1285;
-    private int WINDOW_HEIGHT = 600;
+    private Image otherScreen;
+    public static int WINDOW_WIDTH = 1285;
+    public static int WINDOW_HEIGHT = 800;
 
     public GameViewer(Game game) {
         this.g = game;
         this.background = new ImageIcon("Resources/background.png").getImage();
         this.instructions = new ImageIcon("Resources/instructions.png").getImage();
         this.playScreen = new ImageIcon("Resources/playScreen.png").getImage();
+        this.otherScreen = new ImageIcon("Resources/otherScreen.png").getImage();
 
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,11 +37,14 @@ public class GameViewer extends JFrame {
 
     // Menu screen
     public void menuScreen(Graphics g) {
-        g.drawImage(background, 0, 0, this);
+        g.drawImage(otherScreen, 0, 0, this);
         g.setColor(Color.white);
-//        g.drawString("                                                                NEON ROCKET\n\n\n                                                                Game Instructions\n                                                                (press i)\n\n                                                                Play\n                                                                (press p)\n\n" +
-//                "                                                                Level\n" +
-//                "                                                                (press l)");
+        g.setFont(new Font("Serif", Font.BOLD, 60));
+        g.drawString("NEON ROCKET", 400, 200);
+        g.setFont(new Font("Serif", Font.BOLD, 40));
+        g.drawString("Game Instructions (press i)", 400, 300);
+        g.drawString("Play (press p)", 400, 400);
+        g.drawString("Level (press l)", 400, 500);
     }
 
     // Instruction screen
@@ -49,7 +54,7 @@ public class GameViewer extends JFrame {
 
     public void playScreen(Graphics g) {
         g.drawImage(playScreen, 0, 0, this);
-        Rocket r = new Rocket(200, 600);
-        r.draw(g);
+        this.g.getRocket().draw(g);
+//        g.draw(g);
     }
 }
