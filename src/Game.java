@@ -115,10 +115,10 @@ public class Game implements KeyListener, ActionListener {
     // This method is called every time increment
     // It checks to see if it is hitting the walls or stars or launchpad and repaints the window
     public void actionPerformed(ActionEvent e) {
-        // If the rocket is hitting a wall, reset game
+        // If the rocket is hitting a wall, reset the rocket
         if (r.isHittingWall()) {
-            r.setDX(175);
-            r.setDY(600);
+            r.setX(175);
+            r.setY(600);
         }
         // Update rocket's dx and dy values
         r.move();

@@ -40,4 +40,10 @@ public class Rocket {
     public void setDY(double dy){
         this.dy = dy;
     }
+    public void setX(int x) {
+        this.xCoor = x;
+    }
+    public void setY(int y) {
+        this.yCoor = y;
+    }
 }
