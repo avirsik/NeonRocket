@@ -14,6 +14,7 @@ public class GameViewer extends JFrame {
     private Image asteroid1;
     private Image landingPlatform;
     private Image asteroid2;
+    private Image star;
     public static int WINDOW_WIDTH = 1285;
     public static int WINDOW_HEIGHT = 800;
 
@@ -29,6 +30,8 @@ public class GameViewer extends JFrame {
         this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage();
         this.landingPlatform = new ImageIcon("Resources/landingPlatform.png").getImage();
         this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
+        this.star = new ImageIcon("Resources/star.png").getImage();
+
 
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -85,10 +88,15 @@ public class GameViewer extends JFrame {
     // Instructions screen
     public void instructionsScreen(Graphics g) {
         g.drawImage(instructions, 0, 0, this);
-        g.setFont(new Font("Serif", Font.BOLD, 40));
-        g.drawString("The rocket will start on a launchpad. Use the left and right arrow keys to boost the " +
-                "rocket up and to the left or right. Try to hit as many stars as possible while avoiding obstacle" +
-                "es. If an obstacle is hit, you will die. Land on the launch pad to complete the level.", 200, 300);
+        g.setFont(new Font("Courier", Font.PLAIN, 60));
+        g.setColor(Color.white);
+        g.drawString("Instructions", 470, 180);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 40));
+        g.drawString("Use the left and right arrow keys to boost the rocket ", 150, 280);
+        g.drawString("up and to the left or right. Collect as many stars as ", 150, 350);
+        g.drawString("possible while avoiding obstacles including the walls ", 150, 420);
+        g.drawString("and asteroids. Land on the gold launch pad to complete", 150, 490);
+        g.drawString("the level.", 150, 560);
     }
 
     public void playScreen(Graphics g) {
@@ -99,5 +107,7 @@ public class GameViewer extends JFrame {
         g.drawImage(asteroid1, 300, 300, this);
         g.drawImage(landingPlatform, 900, 725, this);
         g.drawImage(asteroid2, 500, 500, this);
+        g.drawImage(star, 500, 370, this);
+
     }
 }

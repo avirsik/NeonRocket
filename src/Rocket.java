@@ -8,6 +8,7 @@ public class Rocket {
     private double dx;
     private double dy;
     private Image rocketImage;
+    private String state;
     // Constructors
     public Rocket(int x, int y) {
         this.xCoor = x;
@@ -32,8 +33,22 @@ public class Rocket {
     public void move() {
         xCoor+=dx;
         yCoor+=dy;
+        // If it is not on the starting launchpad, implement gravity
+        if (yCoor != 600) {
+            dy += Game.GRAVITY;
+        }
+        // If
+        if (yCoor >= 600 && xCoor >= 900) {
+            state = "menu";
+        }
     }
 
+    public void reset() {
+        xCoor = 175;
+        yCoor = 600;
+        dx = 0;
+        dy = 0;
+    }
     public void setDX(double dx) {
         this.dx = dx;
     }

@@ -10,6 +10,7 @@ public class Game implements KeyListener, ActionListener {
     private Rocket r;
     private String state;
     private Scanner s = new Scanner(System.in);
+    public static final double GRAVITY = 0.6;
 
     public Game() {
         // Initalizing instance variables
@@ -92,16 +93,18 @@ public class Game implements KeyListener, ActionListener {
                 break;
             case KeyEvent.VK_LEFT:
                 r.setDX(-20);
+                r.setDY(-10);
                 break;
             case KeyEvent.VK_RIGHT:
                 r.setDX(20);
+                r.setDY(-10);
                 break;
-            case KeyEvent.VK_UP:
-                r.setDY(-20);
-                break;
-            case KeyEvent.VK_DOWN:
-                r.setDY(20);
-                break;
+//            case KeyEvent.VK_UP:
+//                r.setDY(-20);
+//                break;
+//            case KeyEvent.VK_DOWN:
+//                r.setDY(20);
+//                break;
         }
         gv.repaint();
     }
@@ -117,8 +120,7 @@ public class Game implements KeyListener, ActionListener {
     public void actionPerformed(ActionEvent e) {
         // If the rocket is hitting a wall, reset the rocket
         if (r.isHittingWall()) {
-            r.setX(175);
-            r.setY(600);
+            r.reset();
         }
         // Update rocket's dx and dy values
         r.move();
