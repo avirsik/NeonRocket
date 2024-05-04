@@ -93,11 +93,12 @@ public class Game implements KeyListener, ActionListener {
                 break;
             case KeyEvent.VK_LEFT:
                 r.setDX(-20);
-                r.setDY(-10);
+                r.setDY(-7);
+
                 break;
             case KeyEvent.VK_RIGHT:
                 r.setDX(20);
-                r.setDY(-10);
+                r.setDY(-7);
                 break;
 //            case KeyEvent.VK_UP:
 //                r.setDY(-20);
@@ -122,6 +123,19 @@ public class Game implements KeyListener, ActionListener {
         if (r.isHittingWall()) {
             r.reset();
         }
+        // Check to see if it is hitting any of the asteroids
+//        if (r.isHittingSomething()) {
+//
+//        }
+        // Check to see if it is hitting any of the stars
+        // if (r.isHittingSomething()) {
+//
+//        }
+
+        // Check to see if it is hitting the landingPlatform
+//        if (r.isHittingSomething(900, 725)) {
+//            r.reset();
+//        }
         // Update rocket's dx and dy values
         r.move();
         // Repaint window and rocket's location on the window
