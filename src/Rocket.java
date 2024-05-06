@@ -45,19 +45,12 @@ public class Rocket {
             BufferedImage image = ImageIO.read(file);
             width = xStart + image.getWidth();
             height = yStart + image.getHeight();
-//            System.out.println(xCoor);
-//            System.out.println(yCoor);
-//            System.out.println(width);
-//            System.out.println(height);
-//            System.out.println(xStart);
-//            System.out.println(yStart);
 
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         if (xCoor > xStart && xCoor < height && yCoor > yStart && yCoor < width) {
-//            System.out.println("hittttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttpp");
             return true;
         }
         return false;

@@ -1,60 +1,38 @@
-import java.util.Scanner;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.ArrayList;
 
 
 public class Game implements KeyListener, ActionListener {
     private GameViewer gv;
     private Rocket r;
     private String state;
-    private Scanner s = new Scanner(System.in);
+    private ArrayList<Obstacle> asteroids;
+    private ArrayList<Obstacle> stars;
+
     public static final double GRAVITY = 0.6;
 
     public Game() {
         // Initalizing instance variables
-        this.state = "play";
+        this.state = "menu";
         this.gv = new GameViewer(this);
         r = new Rocket(175, 600);
+
+        asteroids = new ArrayList<Obstacle>();
+        stars = new ArrayList<Obstacle>();
+
+        setLevel1();
 
         Timer clock = new Timer(30, this);
         clock.start();
 
-        this.state = "menu";
-//        this.state = "play";
-
-
         gv.addKeyListener(this);
 
         gv.repaint();
-//        keyTyped();
-//        menu();
     }
-
-//    public void menu() {
-//        System.out.println("\n                                                                NEON ROCKET\n\n\n" +
-//                "                                                                Game Instructions\n" +
-//                "                                                                (press i)\n\n" +
-//                "                                                                Play\n" +
-//                "                                                                (press p)\n\n" +
-//                "                                                                Level\n" +
-//                "                                                                (press l)");
-//        // Print instructions
-//        if (input.equals("i")) {
-//            printInstructions();
-//            state = "instructions";
-//            gv.repaint();
-//        }
-//        // Plays game
-//        else if (input.equals("p")) {
-//            state = "play";
-//        }
-//        // Changes level
-//        else if (input.equals("l")) {
-//            state = "level";
-//        }
-//    }
 
     public String getState() {
         return this.state;
@@ -63,19 +41,16 @@ public class Game implements KeyListener, ActionListener {
     public Rocket getRocket() {
         return this.r;
     }
+    public ArrayList<Obstacle> getAsteroids() {
+        return this.asteroids;
+    }
+    public ArrayList<Obstacle> getStars() {
+        return this.stars;
+    }
 
-    public void printInstructions() {
-        System.out.println("\n\nThe rocket will start on a launchpad. Use the left and right arrow keys to boost the " +
-                "rocket up and to the left or right. Try to hit as many stars as possible while avoiding obstacl" +
-                "es. If an obstacle is hit, you will die. Land on the launch pad to complete the level.");
-    }
-    public static void main(String[] args) {
-        Game g = new Game();
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {
-
 
     }
 
@@ -87,6 +62,7 @@ public class Game implements KeyListener, ActionListener {
                 break;
             case KeyEvent.VK_P:
                 state = "play";
+                setLevel1();
                 break;
             case KeyEvent.VK_L:
                 state = "level";
@@ -94,7 +70,6 @@ public class Game implements KeyListener, ActionListener {
             case KeyEvent.VK_LEFT:
                 r.setDX(-20);
                 r.setDY(-7);
-
                 break;
             case KeyEvent.VK_RIGHT:
                 r.setDX(20);
@@ -107,7 +82,7 @@ public class Game implements KeyListener, ActionListener {
 //                r.setDY(20);
 //                break;
         }
-        gv.repaint();
+//        gv.repaint();
     }
 
     @Override
@@ -140,6 +115,20 @@ public class Game implements KeyListener, ActionListener {
         r.move();
         // Repaint window and rocket's location on the window
         gv.repaint();
+    }
+
+    public void setLevel1() {
+        asteroids.add(new Obstacle(1, 300, 300));
+        asteroids.add(new Obstacle(2, 500, 500));
+        asteroids.add(new Obstacle(3, 800, 300));
+
+        stars.add(new Obstacle(500, 370));
+        stars.add(new Obstacle(1000, 100));
+        stars.add(new Obstacle(350, 200));
+    }
+
+    public static void main(String[] args) {
+        Game g = new Game();
     }
 
 }

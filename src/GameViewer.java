@@ -11,11 +11,11 @@ public class GameViewer extends JFrame {
     private Image logo;
     private Image launchpad;
     private Image platform;
-    private Image asteroid1;
     private Image landingPlatform;
-    private Image asteroid2;
-    private Image star;
-    private Image asteroid3;
+//    private Image asteroid1;
+//    private Image asteroid2;
+//    private Image star;
+//    private Image asteroid3;
     public static int WINDOW_WIDTH = 1285;
     public static int WINDOW_HEIGHT = 800;
 
@@ -28,13 +28,11 @@ public class GameViewer extends JFrame {
         this.logo = new ImageIcon("Resources/logo.png").getImage();
         this.launchpad = new ImageIcon("Resources/launchpad.png").getImage();
         this.platform = new ImageIcon("Resources/platform.png").getImage();
-        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage();
         this.landingPlatform = new ImageIcon("Resources/landingPlatform.png").getImage();
-        this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
-        this.star = new ImageIcon("Resources/star.png").getImage();
-        this.asteroid3 = new ImageIcon("Resources/asteroid3.png").getImage();
-
-
+//        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage()
+//        this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
+//        this.asteroid3 = new ImageIcon("Resources/asteroid3.png").getImage();
+//        this.star = new ImageIcon("Resources/star.png").getImage();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Game Viewer");
@@ -74,9 +72,6 @@ public class GameViewer extends JFrame {
     // Menu screen
     public void menuScreen(Graphics g) {
         g.drawImage(otherScreen, 0, 0, this);
-//        g.setColor(Color.blue);
-//        g.setFont(new Font("Serif", Font.BOLD, 70));
-//        g.drawString("NEON ROCKET", 390, 200);
         g.drawImage(logo, 430, 100, this);
 
         g.setColor(Color.white);
@@ -103,6 +98,12 @@ public class GameViewer extends JFrame {
 
     public void playScreen(Graphics g) {
         level1Screen(g);
+        for (int i = 0; i < this.g.getAsteroids().size(); i++) {
+            this.g.getAsteroids().get(i).draw(g);
+        }
+        for (int i = 0; i < this.g.getStars().size(); i++) {
+            this.g.getStars().get(i).draw(g);
+        }
 //        level2Screen(g);
     }
 
@@ -113,12 +114,12 @@ public class GameViewer extends JFrame {
         g.drawImage(platform, 130, 725, this);
         g.drawImage(landingPlatform, 900, 725, this);
 
-        g.drawImage(asteroid1, 300, 300, this);
-        g.drawImage(asteroid2, 500, 500, this);
-        g.drawImage(asteroid3, 800, 300, this);
-        g.drawImage(star, 500, 370, this);
-        g.drawImage(star, 1000, 100, this);
-        g.drawImage(star, 350, 200, this);
+//        g.drawImage(asteroid1, 300, 300, this);
+//        g.drawImage(asteroid2, 500, 500, this);
+//        g.drawImage(asteroid3, 800, 300, this);
+//        g.drawImage(star, 500, 370, this);
+//        g.drawImage(star, 1000, 100, this);
+//        g.drawImage(star, 350, 200, this);
 
         g.setFont(new Font("Courier", Font.ITALIC, 30));
         g.setColor(Color.white);
