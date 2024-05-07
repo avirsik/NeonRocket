@@ -37,5 +37,4 @@ public class Obstacle {
         g.drawImage(this.image, x, y, gv);
     }
 
-
 }

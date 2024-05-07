@@ -4,9 +4,7 @@ import java.awt.image.BufferStrategy;
 
 public class GameViewer extends JFrame {
     private Game g;
-    private Image background;
     private Image instructions;
-    private Image playScreen;
     private Image otherScreen;
     private Image logo;
     private Image launchpad;
@@ -21,9 +19,7 @@ public class GameViewer extends JFrame {
 
     public GameViewer(Game game) {
         this.g = game;
-        this.background = new ImageIcon("Resources/background.png").getImage();
         this.instructions = new ImageIcon("Resources/instructions.png").getImage();
-        this.playScreen = new ImageIcon("Resources/playScreen.png").getImage();
         this.otherScreen = new ImageIcon("Resources/otherScreen.png").getImage();
         this.logo = new ImageIcon("Resources/logo.png").getImage();
         this.launchpad = new ImageIcon("Resources/launchpad.png").getImage();
@@ -72,14 +68,14 @@ public class GameViewer extends JFrame {
     // Menu screen
     public void menuScreen(Graphics g) {
         g.drawImage(otherScreen, 0, 0, this);
-        g.drawImage(logo, 430, 100, this);
+        g.drawImage(logo, 290, 100, this);
 
         g.setColor(Color.white);
         g.setFont(new Font("Serif", Font.ITALIC, 50));
         g.drawString("PLAY (p)", 570, 500);
         g.setFont(new Font("Serif", Font.ITALIC, 35));
         g.drawString("Game Instructions (i)", 490, 600);
-        g.drawString("Level (l)", 580, 700);
+//        g.drawString("Level (l)", 580, 700);
     }
 
     // Instructions screen
@@ -98,12 +94,12 @@ public class GameViewer extends JFrame {
 
     public void playScreen(Graphics g) {
         level1Screen(g);
-        for (int i = 0; i < this.g.getAsteroids().size(); i++) {
-            this.g.getAsteroids().get(i).draw(g);
-        }
-        for (int i = 0; i < this.g.getStars().size(); i++) {
-            this.g.getStars().get(i).draw(g);
-        }
+//        for (int i = 0; i < this.g.getAsteroids().size(); i++) {
+//            this.g.getAsteroids().get(i).draw(g);
+//        }
+//        for (int i = 0; i < this.g.getStars().size(); i++) {
+//            this.g.getStars().get(i).draw(g);
+//        }
 //        level2Screen(g);
     }
 
@@ -124,6 +120,13 @@ public class GameViewer extends JFrame {
         g.setFont(new Font("Courier", Font.ITALIC, 30));
         g.setColor(Color.white);
         g.drawString("Level 1", 1160, 70);
+
+        for (int i = 0; i < this.g.getAsteroids().size(); i++) {
+            this.g.getAsteroids().get(i).draw(g);
+        }
+        for (int i = 0; i < this.g.getStars().size(); i++) {
+            this.g.getStars().get(i).draw(g);
+        }
     }
 
     public void level2Screen(Graphics g) {

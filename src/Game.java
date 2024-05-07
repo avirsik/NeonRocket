@@ -64,9 +64,9 @@ public class Game implements KeyListener, ActionListener {
                 state = "play";
                 setLevel1();
                 break;
-            case KeyEvent.VK_L:
-                state = "level";
-                break;
+//            case KeyEvent.VK_L:
+//                state = "level";
+//                break;
             case KeyEvent.VK_LEFT:
                 r.setDX(-20);
                 r.setDY(-7);
