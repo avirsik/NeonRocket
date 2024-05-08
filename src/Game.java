@@ -59,6 +59,9 @@ public class Game implements KeyListener, ActionListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode()) {
+            case KeyEvent.VK_M:
+                state = "menu";
+                break;
             case KeyEvent.VK_I:
                 state = "instructions";
                 break;
@@ -105,19 +108,19 @@ public class Game implements KeyListener, ActionListener {
             state = "levelComplete";
         }
         // Check to see if it is hitting any of the stars
-//        for (int i = 0; i < stars.size(); i++) {
-//            if (r.isHittingsomething(stars.get(i))) {
-//                starCount++;
-//                r.reset();
-//            }
-//        }
+        for (int i = 0; i < stars.size(); i++) {
+            if (r.isHittingsomething(stars.get(i))) {
+                starCount++;
+                // Get rid of stars
+            }
+        }
 //
 //        // Check to see if it is hitting the asteroids
-//        for (int i = 0; i < asteroids.size(); i++) {
-//            if (r.isHittingsomething(asteroids.get(i))) {
-//                r.reset();
-//            }
-//        }
+        for (int i = 0; i < asteroids.size(); i++) {
+            if (r.isHittingsomething(asteroids.get(i))) {
+                r.reset();
+            }
+        }
 
         // Update rocket's dx and dy values
         r.move();

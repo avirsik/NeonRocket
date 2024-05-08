@@ -10,7 +10,10 @@ public class GameViewer extends JFrame {
     private Image launchpad;
     private Image platform;
     private Image landingPlatform;
-//    private Image asteroid1;
+    private Image levelCompleteScreen;
+    private Image levelCompleteLogo;
+
+    //    private Image asteroid1;
 //    private Image asteroid2;
 //    private Image star;
 //    private Image asteroid3;
@@ -25,6 +28,9 @@ public class GameViewer extends JFrame {
         this.launchpad = new ImageIcon("Resources/launchpad.png").getImage();
         this.platform = new ImageIcon("Resources/platform.png").getImage();
         this.landingPlatform = new ImageIcon("Resources/landingPlatform.png").getImage();
+        this.levelCompleteScreen = new ImageIcon("Resources/levelCompleteScreen.png").getImage();
+        this.levelCompleteLogo = new ImageIcon("Resources/levelCompleteLogo.png").getImage();
+
 //        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage()
 //        this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
 //        this.asteroid3 = new ImageIcon("Resources/asteroid3.png").getImage();
@@ -142,6 +148,12 @@ public class GameViewer extends JFrame {
     }
 
     public void levelWonScreen(Graphics g) {
-
+        g.drawImage(levelCompleteScreen, 0, 0, this);
+        g.drawImage(levelCompleteLogo, 200, 140, this);
+        g.setColor(Color.white);
+        g.setFont(new Font("Serif", Font.ITALIC, 60));
+        g.drawString("Congratulations!", 440, 450);
+        g.setFont(new Font("Serif", Font.PLAIN, 40));
+        g.drawString("You completed the level! Press 'm' to exit.", 310, 530);
     }
 }
