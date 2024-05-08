@@ -129,8 +129,8 @@ public class Game implements KeyListener, ActionListener {
     }
 
     public void setLevel1() {
-        asteroids.add(new Obstacle(1, 300, 300));
-        asteroids.add(new Obstacle(2, 500, 500));
+        asteroids.add(new Obstacle(1, 400, 300));
+        asteroids.add(new Obstacle(2, 700, 500));
         asteroids.add(new Obstacle(3, 800, 300));
 
         stars.add(new Obstacle(500, 370));
