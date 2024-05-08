@@ -60,8 +60,14 @@ public class GameViewer extends JFrame {
         else if (this.g.getState().equals("instructions")) {
             instructionsScreen(g);
         }
-        else if (this.g.getState().equals("play")) {
-            playScreen(g);
+        else if (this.g.getState().equals("level1")) {
+            level1Screen(g);
+        }
+        else if (this.g.getState().equals("level2")) {
+            level2Screen(g);
+        }
+        else if (this.g.getState().equals("levelComplete")) {
+            levelWonScreen(g);
         }
     }
 
@@ -92,16 +98,6 @@ public class GameViewer extends JFrame {
         g.drawString("the level.", 150, 560);
     }
 
-    public void playScreen(Graphics g) {
-        level1Screen(g);
-//        for (int i = 0; i < this.g.getAsteroids().size(); i++) {
-//            this.g.getAsteroids().get(i).draw(g);
-//        }
-//        for (int i = 0; i < this.g.getStars().size(); i++) {
-//            this.g.getStars().get(i).draw(g);
-//        }
-//        level2Screen(g);
-    }
 
     public void level1Screen(Graphics g) {
         g.drawImage(otherScreen, 0, 0, this);
@@ -135,5 +131,17 @@ public class GameViewer extends JFrame {
         g.drawImage(launchpad, 130, 575, this);
         g.drawImage(platform, 130, 725, this);
         g.drawImage(landingPlatform, 900, 725, this);
+    }
+
+    public void hitAsteroidScreen(Graphics g) {
+        g.setColor(Color.white);
+        g.setFont(new Font("Serif", Font.ITALIC, 50));
+        g.drawString("You Hit an Asteroid!", 570, 500);
+        g.setFont(new Font("Serif", Font.ITALIC, 30));
+        g.drawString("('c' to continue)", 570, 500);
+    }
+
+    public void levelWonScreen(Graphics g) {
+
     }
 }

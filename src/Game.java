@@ -10,6 +10,7 @@ public class Game implements KeyListener, ActionListener {
     private GameViewer gv;
     private Rocket r;
     private String state;
+    private int starCount;
     private ArrayList<Obstacle> asteroids;
     private ArrayList<Obstacle> stars;
 
@@ -18,6 +19,7 @@ public class Game implements KeyListener, ActionListener {
     public Game() {
         // Initalizing instance variables
         this.state = "menu";
+        starCount = 0;
         this.gv = new GameViewer(this);
         r = new Rocket(175, 600);
 
@@ -61,7 +63,7 @@ public class Game implements KeyListener, ActionListener {
                 state = "instructions";
                 break;
             case KeyEvent.VK_P:
-                state = "play";
+                state = "level1";
                 setLevel1();
                 break;
 //            case KeyEvent.VK_L:
@@ -98,19 +100,25 @@ public class Game implements KeyListener, ActionListener {
         if (r.isHittingWall()) {
             r.reset();
         }
-        // Check to see if it is hitting any of the asteroids
-//        if (r.isHittingSomething()) {
-//
-//        }
+        // Check to see if it is hitting the landing platform
+        if (r.isHittingPlatform()) {
+            state = "levelComplete";
+        }
         // Check to see if it is hitting any of the stars
-        // if (r.isHittingSomething()) {
+//        for (int i = 0; i < stars.size(); i++) {
+//            if (r.isHittingsomething(stars.get(i))) {
+//                starCount++;
+//                r.reset();
+//            }
+//        }
 //
+//        // Check to see if it is hitting the asteroids
+//        for (int i = 0; i < asteroids.size(); i++) {
+//            if (r.isHittingsomething(asteroids.get(i))) {
+//                r.reset();
+//            }
 //        }
 
-        // Check to see if it is hitting the landingPlatform
-//        if (r.isHittingSomething(900, 725)) {
-//            r.reset();
-//        }
         // Update rocket's dx and dy values
         r.move();
         // Repaint window and rocket's location on the window

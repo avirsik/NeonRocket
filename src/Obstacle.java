@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
 
 public class Obstacle {
     private GameViewer gv;
@@ -9,6 +10,7 @@ public class Obstacle {
     private int y;
     private boolean isStar;
     private Image image;
+    private ImageObserver observer;
 
 
     public Obstacle(int number, int x, int y) {
@@ -16,6 +18,8 @@ public class Obstacle {
         this.isStar = false;
         this.x = x;
         this.y = y;
+        this.width = image.getWidth(observer);
+        this.height = image.getHeight(observer);
     }
 
     public Obstacle(int x, int y) {
@@ -31,6 +35,14 @@ public class Obstacle {
 
     public int getY() {
         return this.y;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
     }
 
     public void draw(Graphics g) {
