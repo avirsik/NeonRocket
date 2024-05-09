@@ -12,6 +12,11 @@ public class GameViewer extends JFrame {
     private Image landingPlatform;
     private Image levelCompleteScreen;
     private Image levelCompleteLogo;
+    private Image leftArrow;
+    private Image rightArrow;
+    private Image star;
+    private Image asteroid1;
+
 
     //    private Image asteroid1;
 //    private Image asteroid2;
@@ -30,6 +35,11 @@ public class GameViewer extends JFrame {
         this.landingPlatform = new ImageIcon("Resources/landingPlatform.png").getImage();
         this.levelCompleteScreen = new ImageIcon("Resources/levelCompleteScreen.png").getImage();
         this.levelCompleteLogo = new ImageIcon("Resources/levelCompleteLogo.png").getImage();
+        this.leftArrow = new ImageIcon("Resources/leftArrow.png").getImage();
+        this.rightArrow = new ImageIcon("Resources/rightArrow.png").getImage();
+        this.star = new ImageIcon("Resources/star.png").getImage();
+        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage();
+
 
 //        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage()
 //        this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
@@ -90,18 +100,35 @@ public class GameViewer extends JFrame {
 //        g.drawString("Level (l)", 580, 700);
     }
 
-    // Instructions screen
+    // Prints instructions screen
     public void instructionsScreen(Graphics g) {
         g.drawImage(instructions, 0, 0, this);
-        g.setFont(new Font("Courier", Font.PLAIN, 60));
+        g.setFont(new Font("Courier", Font.BOLD, 60));
         g.setColor(Color.white);
-        g.drawString("Instructions", 470, 180);
+        g.drawString("HOW TO PLAY", 450, 180);
+
         g.setFont(new Font("TimesRoman", Font.PLAIN, 25));
-        g.drawString("Use the left and right arrow keys to boost the rocket ", 150, 280);
-        g.drawString("up and to the left or right. Collect all the stars ", 150, 350);
-        g.drawString("while avoiding obstacles including the walls and ", 150, 420);
-        g.drawString("asteroids. Land on the gold launch pad to complete", 150, 490);
-        g.drawString("the level.", 150, 560);
+        g.drawString("Use the LEFT arrow key to boost the rocket up", 110, 280);
+        g.drawString("and to the left and use the RIGHT arrow key to", 110, 320);
+        g.drawString("boost the rocket up and to the right.", 145, 360);
+        g.drawImage(leftArrow, 270, 380, this);
+        g.drawImage(rightArrow, 370, 380, this);
+
+        g.drawString("Collect as many STARS as you can!", 730, 280);
+        g.drawImage(star, 900, 350, this);
+
+        g.drawString("Avoid hitting obstacles including the WALLS", 130, 550);
+        g.drawString("and ASTEROIDS", 280, 580);
+        g.drawImage(asteroid1, 350, 610, this);
+
+        g.drawString("Land on the gold LAUNCH PAD to complete", 710, 550);
+        g.drawString("the level", 900, 590);
+        g.drawImage(landingPlatform, 880, 700, this);
+        g.drawImage(launchpad, 820, 580, this);
+
+        g.setColor(Color.yellow);
+        g.setFont(new Font("TimesRoman", Font.ITALIC, 20));
+        g.drawString("PRESS 'P' TO START!", 565, 685);
     }
 
 

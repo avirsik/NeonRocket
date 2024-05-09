@@ -112,6 +112,7 @@ public class Game implements KeyListener, ActionListener {
             if (r.isHittingsomething(stars.get(i))) {
                 starCount++;
                 // Get rid of stars
+                stars.remove(stars.get(i));
             }
         }
 //
