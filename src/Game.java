@@ -14,7 +14,7 @@ public class Game implements KeyListener, ActionListener {
     private ArrayList<Obstacle> asteroids;
     private ArrayList<Obstacle> stars;
 
-    public static final double GRAVITY = 0.6;
+    public static final double GRAVITY = 1.1;
 
     public Game() {
         // Initalizing instance variables
@@ -109,7 +109,7 @@ public class Game implements KeyListener, ActionListener {
         }
         // Check to see if it is hitting any of the stars
         for (int i = 0; i < stars.size(); i++) {
-            if (r.isHittingsomething(stars.get(i))) {
+            if (r.isHittingSomething(stars.get(i))) {
                 starCount++;
                 // Get rid of stars
                 stars.remove(stars.get(i));
@@ -118,7 +118,7 @@ public class Game implements KeyListener, ActionListener {
 //
 //        // Check to see if it is hitting the asteroids
         for (int i = 0; i < asteroids.size(); i++) {
-            if (r.isHittingsomething(asteroids.get(i))) {
+            if (r.isHittingSomething(asteroids.get(i))) {
                 r.reset();
             }
         }
@@ -134,7 +134,7 @@ public class Game implements KeyListener, ActionListener {
         asteroids.add(new Obstacle(2, 700, 500));
         asteroids.add(new Obstacle(3, 800, 300));
 
-        stars.add(new Obstacle(500, 370));
+        stars.add(new Obstacle(700, 370));
         stars.add(new Obstacle(1000, 100));
         stars.add(new Obstacle(350, 200));
     }

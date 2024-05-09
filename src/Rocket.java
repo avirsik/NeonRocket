@@ -38,30 +38,12 @@ public class Rocket {
         }
         return false;
     }
-//    public boolean isHittingSomething(int xStart, int yStart) {
-//        File file = new File("Resources/landingPlatform.png"); // Provide the path to your image file
-//        int width = 0;
-//        int height = 0;
-//        try {
-//            BufferedImage image = ImageIO.read(file);
-//            width = xStart + image.getWidth();
-//            height = yStart + image.getHeight();
-//
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        if (xCoor > xStart && xCoor < height && yCoor > yStart && yCoor < width) {
-//            return true;
-//        }
-//        return false;
-//    }
 
-    public boolean isHittingsomething(Obstacle o) {
+    public boolean isHittingSomething(Obstacle o) {
         if (xCoor > o.getX() && xCoor < (o.getX() + o.getWidth()) && yCoor > o.getY() && yCoor < (o.getY() + o.getHeight())) {
             return true;
         }
-        else if (xCoor + this.width > o.getX() && xCoor < (o.getX() + o.getWidth()) && yCoor + this.height > o.getY() && yCoor < (o.getY() + o.getHeight())) {
+        if ((xCoor + this.width) > o.getX() && xCoor < (o.getX() + o.getWidth()) && (yCoor + this.height) > o.getY() && yCoor < (o.getY() + o.getHeight())) {
             return true;
         }
 

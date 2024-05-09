@@ -97,7 +97,6 @@ public class GameViewer extends JFrame {
         g.drawString("PLAY (p)", 570, 500);
         g.setFont(new Font("Serif", Font.ITALIC, 35));
         g.drawString("Game Instructions (i)", 490, 600);
-//        g.drawString("Level (l)", 580, 700);
     }
 
     // Prints instructions screen
