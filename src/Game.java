@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.*;
@@ -14,7 +13,7 @@ public class Game implements KeyListener, ActionListener {
     private ArrayList<Obstacle> asteroids;
     private ArrayList<Obstacle> stars;
 
-    public static final double GRAVITY = 1.1;
+    public static final double GRAVITY = 0.5;
 
     public Game() {
         // Initalizing instance variables
@@ -69,9 +68,6 @@ public class Game implements KeyListener, ActionListener {
                 state = "level1";
                 setLevel1();
                 break;
-//            case KeyEvent.VK_L:
-//                state = "level";
-//                break;
             case KeyEvent.VK_LEFT:
                 r.setDX(-20);
                 r.setDY(-7);
@@ -80,14 +76,7 @@ public class Game implements KeyListener, ActionListener {
                 r.setDX(20);
                 r.setDY(-7);
                 break;
-//            case KeyEvent.VK_UP:
-//                r.setDY(-20);
-//                break;
-//            case KeyEvent.VK_DOWN:
-//                r.setDY(20);
-//                break;
         }
-//        gv.repaint();
     }
 
     @Override

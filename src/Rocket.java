@@ -12,7 +12,6 @@ public class Rocket {
     private Image rocketImage;
     private ImageObserver observer;
     private String state;
-    private int tiltAngle;
 
     // Constructors
     public Rocket(int x, int y) {
@@ -23,7 +22,6 @@ public class Rocket {
         dy = 0;
         this.width = rocketImage.getWidth(observer);
         this.height = rocketImage.getHeight(observer);
-        tiltAngle = 0;
     }
 
     public void draw(Graphics g) {
@@ -65,7 +63,6 @@ public class Rocket {
         if (yCoor != 600) {
             dy += Game.GRAVITY;
         }
-        // If
         if (yCoor >= 600 && xCoor >= 900) {
             state = "menu";
         }
@@ -82,11 +79,5 @@ public class Rocket {
     }
     public void setDY(double dy){
         this.dy = dy;
-    }
-    public void setX(int x) {
-        this.xCoor = x;
-    }
-    public void setY(int y) {
-        this.yCoor = y;
     }
 }

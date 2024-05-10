@@ -16,12 +16,6 @@ public class GameViewer extends JFrame {
     private Image rightArrow;
     private Image star;
     private Image asteroid1;
-
-
-    //    private Image asteroid1;
-//    private Image asteroid2;
-//    private Image star;
-//    private Image asteroid3;
     public static int WINDOW_WIDTH = 1285;
     public static int WINDOW_HEIGHT = 800;
 
@@ -39,12 +33,6 @@ public class GameViewer extends JFrame {
         this.rightArrow = new ImageIcon("Resources/rightArrow.png").getImage();
         this.star = new ImageIcon("Resources/star.png").getImage();
         this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage();
-
-
-//        this.asteroid1 = new ImageIcon("Resources/asteroid1.png").getImage()
-//        this.asteroid2 = new ImageIcon("Resources/asteroid2.png").getImage();
-//        this.asteroid3 = new ImageIcon("Resources/asteroid3.png").getImage();
-//        this.star = new ImageIcon("Resources/star.png").getImage();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Game Viewer");
@@ -117,11 +105,11 @@ public class GameViewer extends JFrame {
         g.drawImage(star, 900, 350, this);
 
         g.drawString("Avoid hitting obstacles including the WALLS", 130, 550);
-        g.drawString("and ASTEROIDS", 280, 580);
+        g.drawString("and ASTEROIDS.", 280, 580);
         g.drawImage(asteroid1, 350, 610, this);
 
         g.drawString("Land on the gold LAUNCH PAD to complete", 710, 550);
-        g.drawString("the level", 900, 590);
+        g.drawString("the level.", 900, 590);
         g.drawImage(landingPlatform, 880, 700, this);
         g.drawImage(launchpad, 820, 580, this);
 
@@ -137,13 +125,6 @@ public class GameViewer extends JFrame {
         g.drawImage(launchpad, 130, 575, this);
         g.drawImage(platform, 130, 725, this);
         g.drawImage(landingPlatform, 900, 725, this);
-
-//        g.drawImage(asteroid1, 300, 300, this);
-//        g.drawImage(asteroid2, 500, 500, this);
-//        g.drawImage(asteroid3, 800, 300, this);
-//        g.drawImage(star, 500, 370, this);
-//        g.drawImage(star, 1000, 100, this);
-//        g.drawImage(star, 350, 200, this);
 
         g.setFont(new Font("Courier", Font.ITALIC, 30));
         g.setColor(Color.white);
@@ -165,13 +146,6 @@ public class GameViewer extends JFrame {
         g.drawImage(landingPlatform, 900, 725, this);
     }
 
-    public void hitAsteroidScreen(Graphics g) {
-        g.setColor(Color.white);
-        g.setFont(new Font("Serif", Font.ITALIC, 50));
-        g.drawString("You Hit an Asteroid!", 570, 500);
-        g.setFont(new Font("Serif", Font.ITALIC, 30));
-        g.drawString("('c' to continue)", 570, 500);
-    }
 
     public void levelWonScreen(Graphics g) {
         g.drawImage(levelCompleteScreen, 0, 0, this);
